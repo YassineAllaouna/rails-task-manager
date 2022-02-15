@@ -1,8 +1,13 @@
-<h1>Hello my friend</h1>
+<div class="container">
+  <h1>Hello my friend</h1>
 
-<ol>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task.id) %> | <%= task.completed %>> </li>
-  <% end %>
-  <%= link_to "Create a new Task", tasks_new_path %>
-</ol>
+  <ol>
+    <% @tasks.each do |task| %>
+      <li><%= link_to task.title, task_path(task.id) %> | <%= task.completed %> || <%= link_to "Delete",
+              task_path(task.id),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %></li>
+    <% end %>
+    <%= link_to "Create a new Task", tasks_new_path %>
+  </ol>
+</div>
